@@ -1,0 +1,9 @@
+id,account,description,payment_code,amount,source,destination
+TXN001,ACC1001,UPI payment to grocery store,UPI-GROC-4812,1850,A,B
+TXN002,ACC1002,NEFT salary credit September,NEFT-SAL-9931,62000,C,D
+TXN003,ACC1003,ATM cash withdrawal,ATM-WDL-7765,10000,B,E
+TXN004,ACC1004,urgent transfer suspicious OTP request,IMPS-URG-1122,48500,E,F
+TXN005,ACC1001,UPI payment to grocery store,UPI-GROC-4812,2150,A,B
+TXN006,ACC1003,international wire transfer verify password,WIRE-INT-9008,125000,D,F
+TXN007,ACC1002,credit card bill payment,CARD-BILL-2026,14800,C,A
+TXN008,ACC1003,merchant refund received,REFUND-4421,3400,F,C

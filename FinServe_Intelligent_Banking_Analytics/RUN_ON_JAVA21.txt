@@ -1,0 +1,16 @@
+FINServe - Java 21 quick start (Windows)
+
+1. Extract this ZIP.
+2. Open the folder FinServe_Intelligent_Banking_Analytics in IntelliJ IDEA.
+3. Set File > Project Structure > Project SDK to JDK 21.
+4. Open src/main/java/com/finserve/app/FinServeApplication.java.
+5. Click the green Run triangle beside main().
+
+No Maven installation is required if you use the main() Run button or run.bat.
+Alternative: open IntelliJ Terminal in the project root and run:
+    .\run.bat
+
+If using Maven, pom.xml is configured for Java release 21:
+    mvn clean compile exec:java
+
+Note: the Maven command requires Maven to be installed/configured. The run.bat route uses javac/java directly.

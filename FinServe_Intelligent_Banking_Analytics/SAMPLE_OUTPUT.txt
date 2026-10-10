@@ -1,0 +1,134 @@
+============================================================
+        FinServe - Intelligent Banking Analytics Platform
+        Advanced DSA Demonstration Project | Java 17
+============================================================
+
+============================================================
+BANKING DATA OVERVIEW
+============================================================
+Customers    : 4
+Accounts     : 4
+Transactions : 8
+
+Sample transactions:
+  TXN001 | ACC1001 | UPI-GROC-4812 | Rs.1850.0 | UPI payment to grocery store
+  TXN002 | ACC1002 | NEFT-SAL-9931 | Rs.62000.0 | NEFT salary credit September
+  TXN003 | ACC1003 | ATM-WDL-7765 | Rs.10000.0 | ATM cash withdrawal
+  TXN004 | ACC1004 | IMPS-URG-1122 | Rs.48500.0 | urgent transfer suspicious OTP request
+  TXN005 | ACC1001 | UPI-GROC-4812 | Rs.2150.0 | UPI payment to grocery store
+  TXN006 | ACC1003 | WIRE-INT-9008 | Rs.125000.0 | international wire transfer verify password
+  TXN007 | ACC1002 | CARD-BILL-2026 | Rs.14800.0 | credit card bill payment
+  TXN008 | ACC1003 | REFUND-4421 | Rs.3400.0 | merchant refund received
+
+============================================================
+M1 - CO1: STRING ALGORITHMS
+============================================================
+1) KMP - search 'wire transfer' in transaction descriptions
+   Match indexes: [170]
+
+2) Z-Function - detect repeated 'upi payment' description pattern
+   Match indexes: [0, 125]
+
+3) Rabin-Karp - search financial code 'UPI-GROC-4812'
+   Match indexes: [0, 63]
+
+4) Aho-Corasick - scan multiple fraud indicators in one pass
+   ALERT: urgent transfer @ index 84
+   ALERT: suspicious @ index 100
+   ALERT: otp @ index 111
+   ALERT: international wire @ index 156
+   ALERT: verify password @ index 184
+
+============================================================
+M2 - CO2: SUFFIX STRUCTURES
+============================================================
+1) Suffix Array built for financial document
+   First 12 suffix positions: [75, 28, 11, 49, 80, 3, 41, 21, 64, 37, 59, 73]
+   Query 'wire transfer' found at index: 60
+
+2) SA-IS induced-sorting suffix array
+   First 12 positions: [75, 28, 11, 49, 80, 3, 41, 21, 64, 37, 59, 73]
+   Same ordering as doubling suffix array: true
+
+3) Kasai LCP - repeated transaction text
+   Longest repeated substring: 'upi payment grocery | '
+
+4) Suffix Automaton - fast substring query
+   Contains 'salary credit'? true
+   Contains 'crypto mining'? false
+
+============================================================
+M3 - CO3: ADVANCED DYNAMIC PROGRAMMING
+============================================================
+1) Levenshtein distance for transaction-description correction
+   'UPI paymant grocery' -> 'UPI payment grocery' = 1
+
+2) Damerau-Levenshtein for transposition errors
+   'NEFT trasnfer' -> 'NEFT transfer' = 1
+
+3) Weighted Edit Distance (replacement errors are more expensive)
+   Weighted cost = 2
+
+4) Bitmask DP - best analytics operations under processing budget 12
+   Selected: [Fraud scan, Credit scoring, Portfolio analysis]
+   Cost=12, Analytics value=29
+
+5) Matrix-Chain Multiplication - optimize transaction-analysis pipeline
+   Minimum scalar operations: 26000
+   Best order: ((A1 x (A2 x A3)) x A4)
+
+============================================================
+M4 - CO4: NETWORK FLOW
+============================================================
+1) Ford-Fulkerson max transaction flow : 23
+2) Edmonds-Karp max transaction flow    : 23
+3) Dinic max transaction flow           : 23
+
+4) Bipartite Matching - analysts assigned to fraud cases: 4
+
+5) Min-Cut - critical transaction channels
+   Channel 1 -> 3 capacity=12
+   Channel 4 -> 3 capacity=7
+   Channel 4 -> 5 capacity=4
+
+============================================================
+M5 - CO5: NP-COMPLETENESS AND APPROXIMATION
+============================================================
+1) SAT/3-SAT financial-rule constraint solver
+   Satisfiable: true
+   Assignment : x1=false, x2=false, x3=false
+
+2) 3-SAT -> CLIQUE reduction
+   3-SAT with 3 clauses -> CLIQUE graph with 9 literal-vertices. CLIQUE in G becomes INDEPENDENT-SET in complement(G); an independent set of size k corresponds to a vertex cover of size |V|-k.
+
+3) CLIQUE -> INDEPENDENT-SET -> VERTEX-COVER
+   Complement graph vertices: 9
+
+4) Vertex-Cover 2-approximation for financial dependencies
+   Approximate cover vertices: [0, 1, 2, 4, 3, 5]
+
+============================================================
+M6 - CO6: RANDOMIZED AND PARALLEL ALGORITHMS
+============================================================
+1) Randomized QuickSort - ranked transaction amounts
+   [1850.0, 2150.0, 3400.0, 10000.0, 14800.0, 48500.0, 62000.0, 125000.0]
+
+2) Miller-Rabin primality test
+   2147483647 is prime? true
+
+3) Reservoir Sampling - sample 3 transactions from stream
+   [TXN006, TXN002, TXN008]
+
+4) Blelloch Scan - exclusive cumulative transaction totals
+   [0, 1850, 63850, 73850, 122350, 124500, 249500, 264300]
+
+5) Parallel Reduce - aggregate total transaction value
+   Total = Rs.267700
+
+6) Brent's theorem - 8-processor time upper bound
+   T_p <= T1/p + T_infinity = 240.0 abstract time units
+
+============================================================
+DEMO COMPLETE
+============================================================
+FinServe successfully demonstrated M1-CO1 through M6-CO6.
